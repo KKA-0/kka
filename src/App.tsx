@@ -83,14 +83,14 @@ export default function App() {
       {!isHoveringCard && (
         <>
           <div
-            className="fixed w-8 h-8 rounded-full bg-teal-400/30 blur-xl pointer-events-none mix-blend-screen transition-opacity duration-300"
+            className="fixed w-8 h-8 rounded-full bg-teal-400/30 blur-xl pointer-events-none mix-blend-screen transition-opacity duration-300 z-[9999]"
             style={{
               left: `${mousePos.x - 16}px`,
               top: `${mousePos.y - 16}px`,
             }}
           />
           <div
-            className="fixed w-2 h-2 rounded-full bg-teal-300 pointer-events-none"
+            className="fixed w-2 h-2 rounded-full bg-teal-300 pointer-events-none z-[9999]"
             style={{
               left: `${mousePos.x - 4}px`,
               top: `${mousePos.y - 4}px`,
@@ -102,7 +102,7 @@ export default function App() {
       {/* Cat Cursor */}
       {isHoveringCard && (
         <div
-          className="fixed pointer-events-none transition-opacity duration-200"
+          className="fixed pointer-events-none transition-opacity duration-200 z-[9999]"
           style={{
             left: `${mousePos.x - 20}px`,
             top: `${mousePos.y - 20}px`,
@@ -203,7 +203,7 @@ export default function App() {
                 rel="noopener noreferrer"
                 onMouseEnter={() => setIsHoveringCard(true)}
                 onMouseLeave={() => setIsHoveringCard(false)}
-                className={`group relative w-full rounded-2xl border border-white/[0.08] bg-gradient-to-br ${gradient} backdrop-blur-sm overflow-hidden transition-all duration-300 ${borderColor} hover:shadow-xl hover:-translate-y-0.5`}
+                className={`group relative w-full rounded-2xl border border-white/[0.08] bg-gradient-to-br ${gradient} backdrop-blur-sm overflow-hidden transition-all duration-300 ${borderColor} hover:shadow-xl hover:-translate-y-0.5 cursor-none`}
               >
                 <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative p-5">
