@@ -1,4 +1,4 @@
-import { Github, Linkedin, Pin, ExternalLink, FileText, Sparkles } from "lucide-react";
+import { Github, Linkedin, Pin, ExternalLink, FileText, Sparkles, Gamepad2 } from "lucide-react";
 
 const socialLinks = [
   {
@@ -28,6 +28,19 @@ const socialLinks = [
 ];
 
 const projects = [
+  {
+    name: "playUs",
+    tagline: "Co-op Gaming Hub",
+    description:
+      "Discover co-op games, create P2P connections, and play together. Galaxy Saver, Spaceship Shooter, Grow Snake, Chained Together, and many more.",
+    href: "#",
+    badge: "In Development",
+    gradient: "from-amber-500/20 to-orange-500/10",
+    borderColor: "hover:border-amber-400/60",
+    badgeColor: "bg-amber-500/20 text-amber-300 border border-amber-500/30",
+    icon: Gamepad2,
+    iconColor: "text-amber-400",
+  },
   {
     name: "SureBill",
     tagline: "Invoice Buddy",
