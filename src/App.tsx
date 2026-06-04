@@ -1,4 +1,5 @@
 import { Github, Linkedin, Pin, ExternalLink, FileText, Sparkles, Gamepad2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const socialLinks = [
   {
@@ -57,14 +58,41 @@ const projects = [
 ];
 
 export default function App() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white flex flex-col items-center px-4 py-16 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0a0a0f] text-white flex flex-col items-center px-4 py-16 relative overflow-hidden cursor-none">
       {/* Background ambient glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-teal-500/5 blur-[120px]" />
         <div className="absolute bottom-[-10%] left-1/4 w-[400px] h-[400px] rounded-full bg-sky-500/5 blur-[100px]" />
         <div className="absolute top-1/2 right-[-5%] w-[300px] h-[300px] rounded-full bg-slate-500/5 blur-[80px]" />
       </div>
+
+      {/* Cursor Glow */}
+      <div
+        className="fixed w-8 h-8 rounded-full bg-teal-400/30 blur-xl pointer-events-none mix-blend-screen transition-opacity duration-300"
+        style={{
+          left: `${mousePos.x - 16}px`,
+          top: `${mousePos.y - 16}px`,
+        }}
+      />
+      <div
+        className="fixed w-2 h-2 rounded-full bg-teal-300 pointer-events-none"
+        style={{
+          left: `${mousePos.x - 4}px`,
+          top: `${mousePos.y - 4}px`,
+        }}
+      />
 
       {/* Grid overlay */}
       <div
