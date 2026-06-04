@@ -59,6 +59,7 @@ const projects = [
 
 export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHoveringCard, setIsHoveringCard] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -79,20 +80,42 @@ export default function App() {
       </div>
 
       {/* Cursor Glow */}
-      <div
-        className="fixed w-8 h-8 rounded-full bg-teal-400/30 blur-xl pointer-events-none mix-blend-screen transition-opacity duration-300"
-        style={{
-          left: `${mousePos.x - 16}px`,
-          top: `${mousePos.y - 16}px`,
-        }}
-      />
-      <div
-        className="fixed w-2 h-2 rounded-full bg-teal-300 pointer-events-none"
-        style={{
-          left: `${mousePos.x - 4}px`,
-          top: `${mousePos.y - 4}px`,
-        }}
-      />
+      {!isHoveringCard && (
+        <>
+          <div
+            className="fixed w-8 h-8 rounded-full bg-teal-400/30 blur-xl pointer-events-none mix-blend-screen transition-opacity duration-300"
+            style={{
+              left: `${mousePos.x - 16}px`,
+              top: `${mousePos.y - 16}px`,
+            }}
+          />
+          <div
+            className="fixed w-2 h-2 rounded-full bg-teal-300 pointer-events-none"
+            style={{
+              left: `${mousePos.x - 4}px`,
+              top: `${mousePos.y - 4}px`,
+            }}
+          />
+        </>
+      )}
+
+      {/* Cat Cursor */}
+      {isHoveringCard && (
+        <div
+          className="fixed pointer-events-none transition-opacity duration-200"
+          style={{
+            left: `${mousePos.x - 20}px`,
+            top: `${mousePos.y - 20}px`,
+          }}
+        >
+          <img
+            src="/cat-cursor.png"
+            alt="cat cursor"
+            className="w-10 h-10 drop-shadow-lg"
+            draggable={false}
+          />
+        </div>
+      )}
 
       {/* Grid overlay */}
       <div
@@ -178,6 +201,8 @@ export default function App() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={() => setIsHoveringCard(true)}
+                onMouseLeave={() => setIsHoveringCard(false)}
                 className={`group relative w-full rounded-2xl border border-white/[0.08] bg-gradient-to-br ${gradient} backdrop-blur-sm overflow-hidden transition-all duration-300 ${borderColor} hover:shadow-xl hover:-translate-y-0.5`}
               >
                 <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
