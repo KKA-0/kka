@@ -33,7 +33,7 @@ const projects = [
     tagline: "Co-op Gaming Hub",
     description:
       "Discover co-op games, create P2P connections, and play together. Galaxy Saver, Spaceship Shooter, Grow Snake, Chained Together, and many more.",
-    href: "#",
+    href: "https://playus.vercel.app/",
     badge: "In Development",
     gradient: "from-amber-500/20 to-orange-500/10",
     borderColor: "hover:border-amber-400/60",
