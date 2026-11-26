@@ -1,4 +1,4 @@
-import { Github, Linkedin, Pin, ExternalLink, FileText, Sparkles, Gamepad2 } from "lucide-react";
+import { Github, Linkedin, Pin, ExternalLink, Store, Sparkles, Gamepad2 } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const socialLinks = [
@@ -43,16 +43,16 @@ const projects = [
     iconColor: "text-amber-400",
   },
   {
-    name: "SureBill",
-    tagline: "Invoice Buddy",
+    name: "Sellora",
+    tagline: "E-Commerce & GST OS",
     description:
-      "A smart invoicing tool that simplifies billing workflows. Create, send, and track invoices with ease.",
-    href: "#",
-    badge: "Indie Project",
+      "AI-powered, local-first desktop app for Indian e-commerce sellers on Amazon, Flipkart, and Meesho. Tracks inventory, multi-channel P&L analytics, reverse shipping leakage, compliance reminders, and monthly GST JSON generation.",
+    href: "https://github.com/KKA-0/Sellora",
+    badge: "In Development",
     gradient: "from-teal-500/20 to-cyan-500/10",
     borderColor: "hover:border-teal-400/60",
     badgeColor: "bg-teal-500/20 text-teal-300 border border-teal-500/30",
-    icon: FileText,
+    icon: Store,
     iconColor: "text-teal-400",
   },
 ];
